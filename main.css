@@ -1,0 +1,147 @@
+/* General Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+/* /General Styles */
+/* Header Styles */
+.header {
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  background-color: #045a;
+  max-height: 10vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo > a > img {
+  width: 60px;
+}
+
+h2.logo-title > a {
+  font-size: 1.3rem;
+  display: inline-block;
+  line-height: 1.2rem;
+  color: #000;
+}
+/* Burger Icon */
+.burger-icon {
+  cursor: pointer;
+  display: none;
+  height: 27px;
+  width: 27px;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
+
+span,
+span::before,
+span::after {
+  background: #000;
+  display: block;
+  height: 2px;
+  opacity: 1;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+}
+
+span::before,
+span::after {
+  content: "";
+}
+
+span::before {
+  left: 0px;
+  top: -10px;
+  width: 27px;
+}
+
+span {
+  right: 0px;
+  top: 13px;
+  width: 27px;
+}
+
+span::after {
+  left: 0px;
+  top: 10px;
+  width: 27px;
+}
+/* /Burger Icon */
+/* Burger Icon Animation */
+div.overlay > span::before {
+  top: 0px;
+  transform: rotate(90deg);
+  width: 27px;
+}
+
+div.overlay > span {
+  top: 13px;
+  transform: rotate(-45deg);
+  width: 27px;
+}
+
+div.overlay > span::after {
+  top: 0px;
+  left: 0;
+  transform: rotate(90deg);
+  opacity: 0;
+  width: 0;
+}
+/* /Burger Icon Animation */
+.navbar > ul {
+  display: flex;
+  gap: 15px;
+  font-size: 1.2rem;
+}
+
+.navbar > ul > li > a {
+  color: aliceblue;
+}
+/* /Header Styles */
+/* Mobile version */
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: violet;
+  }
+  .navbar {
+    position: absolute;
+    right: 0;
+    height: 90vh;
+    top: 10vh;
+    background-color: #045a;
+    width: 50%;
+    padding: 30px;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
+
+  .navbar > ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .burger-icon {
+    display: block;
+  }
+
+  .navbar-active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* /Mobile version */
